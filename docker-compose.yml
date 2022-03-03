@@ -18,7 +18,8 @@ services:
     volumes:
       - ./server:/app
     depends_on:
-      - postgres
+      - postgres_test
+      - mysql
       - redis-single
     networks:
       - default
@@ -35,9 +36,9 @@ services:
       dockerfile: client/Dockerfile
     container_name: questionit_client
     restart: always
-    command: "yarn run dev:pm2"
+    command: "yarn run dev"
     ports:
-      - 5000:5000
+      - 5002:5000
     volumes:
       - ./client:/app
     depends_on:
@@ -56,6 +57,36 @@ services:
       - psql_db:/var/lib/postgresql/data
     networks:
       - default
+
+  # - TODO REMOVE AFTER MIGRATION -
+
+  postgres_test:
+    image: postgres:14.1
+    container_name: questionit_postgrestest
+    env_file:
+      - ./bootstrap.env
+    ports:
+      - 5432:5432
+    volumes:
+      - migrate_psql_db:/var/lib/postgresql/data
+    networks:
+      - default
+
+  mysql:
+    image: mysql:8
+    container_name: questionit_mysql
+    env_file:
+      - ./bootstrap.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - 3306:3306
+    volumes:
+      - migrate_mysql_db:/var/lib/mysql
+    networks:
+      - default
+
+  # - TODO -
 
   redis-single:
     image: redis:6.2.5-alpine
@@ -82,6 +113,10 @@ networks:
 
 volumes:
   psql_db:
+    external: true
+  migrate_mysql_db:
+    external: true
+  migrate_psql_db:
     external: true
   redis_single_persist:
     external: true
