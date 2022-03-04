@@ -38,7 +38,7 @@ docker-compose exec postgres psql -U postgres
 
 # The regular user, used by the server
 =# GRANT CONNECT ON DATABASE questionit TO questionit;
-=# GRANT USAGE ON SCHEMA public TO questionit;
+=# GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO questionit;
 =# GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO questionit;
 
 # Create unaccent extension
