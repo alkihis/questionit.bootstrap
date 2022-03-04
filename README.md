@@ -1,5 +1,8 @@
 # QuestionIt.space dev env
 
+- [Client](https://github.com/alkihis/questionit.space-v2)
+- [Server](https://github.com/alkihis/questionit.api-v2)
+
 ## Setup dev env
 
 ### Clone repositories
