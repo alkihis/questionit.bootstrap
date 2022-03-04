@@ -18,7 +18,7 @@ services:
     volumes:
       - ./server:/app
     depends_on:
-      - postgres_test
+      - postgres
       - mysql
       - redis-single
     networks:
@@ -59,18 +59,6 @@ services:
       - default
 
   # - TODO REMOVE AFTER MIGRATION -
-
-  postgres_test:
-    image: postgres:14.1
-    container_name: questionit_postgrestest
-    env_file:
-      - ./bootstrap.env
-    ports:
-      - 5432:5432
-    volumes:
-      - migrate_psql_db:/var/lib/postgresql/data
-    networks:
-      - default
 
   mysql:
     image: mysql:8
@@ -115,8 +103,6 @@ volumes:
   psql_db:
     external: true
   migrate_mysql_db:
-    external: true
-  migrate_psql_db:
     external: true
   redis_single_persist:
     external: true
