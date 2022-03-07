@@ -8,11 +8,8 @@ up:
 reboot: down up
 
 refresh: down
-	cd server
-	git pull
-	cd ../client
-	git pull
-	cd ..
+	cd server && git pull
+	cd client && git pull
 	docker compose run -e NODE_ENV=production api yarn build
 	docker compose run -e NODE_ENV=production web yarn build
 	docker compose up -d
