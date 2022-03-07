@@ -43,12 +43,15 @@ docker compose exec postgres psql -U postgres
 
 docker compose build api
 docker compose run -e NODE_ENV=development api yarn
+# Needed to have dist/ folder
+docker compose run -e NODE_ENV=production api yarn build
 
 docker compose run api yarn run:migration
 
 # Allow usage of db to classic user
 docker compose exec postgres psql -U postgres
 
+=# \c questionit
 =# GRANT CONNECT ON DATABASE questionit TO questionit;
 =# GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO questionit;
 =# GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO questionit;
