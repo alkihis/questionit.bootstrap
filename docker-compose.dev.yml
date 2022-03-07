@@ -9,10 +9,10 @@ services:
       - ./bootstrap.env
     build:
       context: .
-      dockerfile: server/Dockerfile.production
+      dockerfile: server/Dockerfile
     container_name: questionit_api
     restart: always
-    command: "yarn run start"
+    command: "yarn run start:dev:pm2"
     ports:
       - 5001:5000
     volumes:
@@ -33,7 +33,7 @@ services:
       - ./bootstrap.env
     build:
       context: .
-      dockerfile: client/Dockerfile.production
+      dockerfile: client/Dockerfile
     container_name: questionit_client
     restart: always
     command: "yarn run dev"
