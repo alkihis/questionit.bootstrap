@@ -7,6 +7,15 @@
 - [Nuxt.js Client](https://github.com/alkihis/questionit.space-v2)
 - [Nest.js Server](https://github.com/alkihis/questionit.api-v2)
 
+## Contribute
+
+Feature request?
+Bug?
+
+*Don't create an issue on that repository*!
+
+Create an issue either on client (if this is related to QuestionIt.space website) either on server (if this is related to API) repository.
+
 ## Setup environment
 
 Developer environment requires:
