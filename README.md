@@ -1,7 +1,7 @@
 # QuestionIt.space developer environment
 
 <p align="center" style="margin-top: 2rem">
-  <a href="https://questionit.space/" target="_blank"><img src="https://questionit.space/images/logo/BannerWhite.png" width="380" alt="Nest Logo" /></a>
+  <a href="https://questionit.space/" target="_blank"><img src="https://questionit.space/images/logo/BannerBlue.png" width="380" alt="Nest Logo" /></a>
 </p>
 
 - [Nuxt.js Client](https://github.com/alkihis/questionit.space-v2)
