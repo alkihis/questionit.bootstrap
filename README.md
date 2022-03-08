@@ -91,26 +91,6 @@ You're ready to start services!
 docker compose up -d web
 ```
 
-### Migrate
-
-Migrate v1 beta to this dev platform.
-
-Obtain a dump ``questionit.sql`` by your own needs
-
-```sh
-docker compose up -d mysql
-docker compose exec mysql mysql -u root -ppassword
-
-> CREATE DATABASE questionit;
-> exit;
-
-docker exec -i questionit_mysql mysql -u root -ppassword questionit < questionit.sql
-
-docker compose run api yarn legacy:migrate
-# Use CTRL+C when migration is over
-docker compose down
-```
-
 ### Init for prod
 
 ```sh 
