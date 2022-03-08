@@ -80,10 +80,8 @@ services:
     container_name: questionit_redis
     restart: always
     entrypoint: redis-server --requirepass questionit --appendonly yes
-    environment:
-      - REDIS_APPENDONLY=yes
-      - REDIS_APPENDFSYNC=always
-      - REDIS_PASSWORD=questionit
+    env_file:
+      - ./bootstrap.env
     volumes:
       - redis_single_persist:/data
     deploy:
