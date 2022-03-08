@@ -71,54 +71,10 @@ docker compose exec postgres psql -U postgres
 docker compose down
 
 docker compose build web
-docker compose run -e NODE_ENV=development web yarn
 ```
 
 ### Start services
 
 ```sh
-docker compose up -d web
-```
-
-### Migrate
-
-Migrate v1 beta to this dev platform.
-
-Obtain a dump ``questionit.sql`` by your own needs
-
-```sh
-docker compose up -d mysql
-docker compose exec mysql mysql -u root -ppassword
-
-> CREATE DATABASE questionit;
-> exit;
-
-docker exec -i questionit_mysql mysql -u root -ppassword questionit < questionit.sql
-
-docker compose run api yarn legacy:migrate
-# Use CTRL+C when migration is over
-docker compose down
-```
-
-### Init for prod
-
-```sh 
-docker compose run -e NODE_ENV=production api yarn build
-docker compose run -e NODE_ENV=production web yarn build
-```
-
-### Refresh and rebuild for prod
-
-```sh 
-cd client
-git pull
-cd ../server
-git pull
-cd ..
-
-docker compose run -e NODE_ENV=production api yarn build
-docker compose run -e NODE_ENV=production web yarn build
-
-docker compose stop web && docker compose stop api
 docker compose up -d web
 ```
