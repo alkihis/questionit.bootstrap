@@ -1,13 +1,24 @@
-# QuestionIt.space dev env
+# QuestionIt.space developer environment
 
-- [Client](https://github.com/alkihis/questionit.space-v2)
-- [Server](https://github.com/alkihis/questionit.api-v2)
+<p align="center" style="margin-top: 2rem">
+  <a href="https://questionit.space/" target="_blank"><img src="https://questionit.space/images/logo/BannerWhite.png" width="380" alt="Nest Logo" /></a>
+</p>
 
-## Setup dev env
+- [Nuxt.js Client](https://github.com/alkihis/questionit.space-v2)
+- [Nest.js Server](https://github.com/alkihis/questionit.api-v2)
+
+## Setup environment
+
+Developer environment requires:
+- A Docker compatible system
+- Docker Compose v2 (Windows/Mac: bundled with Docker Desktop; Linux: see [`docker compose` v2 extension for linux](https://docs.docker.com/compose/cli-command/#install-on-linux)) 
 
 ### Clone repositories
 
 ```sh
+git clone git@github.com:alkihis/questionit.bootstrap.git bootstrap
+cd bootstrap
+
 git clone git@github.com:alkihis/questionit.api-v2.git server
 git clone git@github.com:alkihis/questionit.space-v2.git client
 ```
@@ -16,9 +27,9 @@ git clone git@github.com:alkihis/questionit.space-v2.git client
 
 Copy `bootstrap.env.dist` to `bootstrap.env`, and fill it with your own variables.
 
-### Init project
+**Warning:** Fill `bootstrap.env` before starting any container!
 
-You might need to install [`docker compose` v2 extension](https://docs.docker.com/compose/cli-command/#install-on-linux) if you're using Linux.
+### Init project
 
 ```sh
 docker volume create migrate_mysql_db
@@ -80,8 +91,6 @@ docker compose up -d mysql
 docker compose exec mysql mysql -u root -ppassword
 
 > CREATE DATABASE questionit;
-> CREATE USER 'questionit'@'localhost' IDENTIFIED WITH mysql_native_password BY 'xxxx';
-> GRANT ALL ON *.* TO 'questionit'@'localhost';
 > exit;
 
 docker exec -i questionit_mysql mysql -u root -ppassword questionit < questionit.sql
