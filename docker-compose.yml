@@ -19,7 +19,6 @@ services:
       - ./server:/app
     depends_on:
       - postgres
-      - mysql
       - redis-single
     networks:
       - default
