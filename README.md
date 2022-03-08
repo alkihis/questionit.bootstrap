@@ -1,8 +1,10 @@
 # QuestionIt.space developer environment
 
 <p align="center" style="margin-top: 2rem">
-  <a href="https://questionit.space/" target="_blank"><img src="https://questionit.space/images/logo/BannerBlue.png#gh-dark-mode-only" width="380" alt="QuestionIt.space Logo" /></a>
-  <a href="https://questionit.space/" target="_blank"><img src="https://questionit.space/images/logo/BannerWhite.png#gh-light-mode-only" width="380" alt="QuestionIt.space Logo" /></a>
+
+![QuestionIt.space logo](https://questionit.space/images/logo/BannerBlue.png#gh-dark-mode-only)
+![QuestionIt.space logo](https://questionit.space/images/logo/BannerWhite.png#gh-light-mode-only)
+
 </p>
 
 - [Nuxt.js Client](https://github.com/alkihis/questionit.space-v2)
