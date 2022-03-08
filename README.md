@@ -1,13 +1,8 @@
 # QuestionIt.space developer environment
 
 <p align="center" style="margin-top: 2rem">
-
-
-
+  <a href="https://questionit.space/" target="_blank"><img src="https://questionit.space/images/logo/BannerBlue.png" width="380" alt="QuestionIt Logo" /></a>
 </p>
-
-![QuestionIt.space logo](https://questionit.space/images/logo/BannerBlue.png#gh-light-mode-only)
-![QuestionIt.space logo](https://questionit.space/images/logo/BannerWhite.png#gh-dark-mode-only)
 
 - [Nuxt.js Client](https://github.com/alkihis/questionit.space-v2)
 - [Nest.js Server](https://github.com/alkihis/questionit.api-v2)
